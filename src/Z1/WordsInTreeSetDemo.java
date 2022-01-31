@@ -1,29 +1,23 @@
 package Z1;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class WordsInTreeSetDemo {
-    public static void main(String[] args) throws FileNotFoundException {
-        Set<String> words = new TreeSet<>();
-        long totalTime = 0;
+    public static void main(String[] args) {
+        List<Person> list = new ArrayList<>();
+        list.add(new Person("Ada","Kolsko",20));
+        list.add(new Person("Pola","Sotko",10));
+        list.add(new Person("Tola","Clotek",40));
+        list.add(new Person("Kasia","Motoo",15));
 
-        Scanner in = new Scanner(new File("alice30.txt"));
-        while (in.hasNext()) {
-            String word = in.next();
-            long callTime = System.currentTimeMillis();
-            words.add(word);
-            callTime = System.currentTimeMillis() - callTime;
-            totalTime += callTime;
-        }
+        Collections.sort(list);
 
-        Iterator<String> iter = words.iterator();
-        for (int j = 1; j <= 20; ++j) {
-            System.out.println(iter.next());
-        }
+        System.out.println(list);
 
-        System.out.println(". . .");
-        System.out.println(words.size() + " unikalnych słów. " + totalTime + " milisekund.");
+
+
     }
+
 }
